@@ -39,11 +39,24 @@
             nope: 'css/bootstrap.min.css'
         }, {
             load: 'css/scoring.css'
+        }, {
+            load: 'js/knockout-2.1.0.js'
+        }, {
+            load: 'js/scoring.js'
         }]);
         </script>
     </head>
     <body>
         <div id="container">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <span class="brand">Team Trivia Scoring</span>
+                    <form class="navbar-form pull-right" data-bind="submit: setRows">
+                        <input name="numRows" type="text" class="input-mini" data-bind="value: scores().length">
+                        <button type="submit" class="btn">Set # Teams</button>
+                    </form>
+                </div>
+            </div>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -73,7 +86,7 @@
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody data-bind="foreach: scores">
                     <tr>
                         <td><span class="input-xxmini uneditable-input">1</span></td>
                         <td><input type="text" class="input-xxmini" value="5"></td>
