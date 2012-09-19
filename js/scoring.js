@@ -8,6 +8,7 @@ var Team = function (leagueId, name) {
 var scoringModel = function () {
     
     this.defaultRows = 10;
+    this.validScores = [-5, -3, -1, 0, 1, 3, 5];
     
     this.teams = ko.observableArray();
     
