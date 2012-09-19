@@ -101,30 +101,42 @@
                             <select class="input-xmini" data-bind='value: q1, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                         </td>
                         <td>
-                            <select class="input-xmini" data-bind='value: q2, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            <div class="control-group" data-bind="css: { error: isQ2Dupe() }">
+                                <select class="input-xmini" data-bind='value: q2, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            </div>
                         </td>
                         <td>
-                            <select class="input-xmini" data-bind='value: q3, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            <div class="control-group" data-bind="css: { error: isQ3Dupe() }">
+                                <select class="input-xmini" data-bind='value: q3, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            </div>
                         </td>
                         <td><span class="input-xxmini uneditable-input" data-bind="text: r1"></span></td>
                         <td>
                             <select class="input-xmini" data-bind='value: q4, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                         </td>
                         <td>
-                            <select class="input-xmini" data-bind='value: q5, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            <div class="control-group" data-bind="css: { error: isQ5Dupe() }">
+                                <select class="input-xmini" data-bind='value: q5, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            </div>
                         </td>
                         <td>
-                            <select class="input-xmini" data-bind='value: q6, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            <div class="control-group" data-bind="css: { error: isQ6Dupe() }">
+                                <select class="input-xmini" data-bind='value: q6, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            </div>
                         </td>
                         <td><span class="input-xxmini uneditable-input" data-bind="text: r2"></span></td>
                         <td>
                             <select class="input-xmini" data-bind='value: q7, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                         </td>
                         <td>
-                            <select class="input-xmini" data-bind='value: q8, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            <div class="control-group" data-bind="css: { error: isQ8Dupe() }">
+                                <select class="input-xmini" data-bind='value: q8, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            </div>
                         </td>
                         <td>
-                            <select class="input-xmini" data-bind='value: q9, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            <div class="control-group" data-bind="css: { error: isQ9Dupe() }">
+                                <select class="input-xmini" data-bind='value: q9, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                            </div>
                         </td>
                         <td><span class="input-xxmini uneditable-input" data-bind="text: r3"></span></td>
                         <td><input type="text" class="input-xxmini" data-bind="value: bonus"></td>

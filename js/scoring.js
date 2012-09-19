@@ -11,15 +11,15 @@ var Score = function () {
         return teams[self.leagueId()];
     });
     
-    self.q1 = ko.observable("-999");
-    self.q2 = ko.observable("-999");
-    self.q3 = ko.observable("-999");
-    self.q4 = ko.observable("-999");
-    self.q5 = ko.observable("-999");
-    self.q6 = ko.observable("-999");
-    self.q7 = ko.observable("-999");
-    self.q8 = ko.observable("-999");
-    self.q9 = ko.observable("-999");
+    self.q1 = ko.observable("");
+    self.q2 = ko.observable("");
+    self.q3 = ko.observable("");
+    self.q4 = ko.observable("");
+    self.q5 = ko.observable("");
+    self.q6 = ko.observable("");
+    self.q7 = ko.observable("");
+    self.q8 = ko.observable("");
+    self.q9 = ko.observable("");
     
     self.bonus = ko.observable("");
     self.halftime = ko.observable("");
@@ -49,6 +49,30 @@ var Score = function () {
         
         return (teams[self.leagueId()] == undefined);
     }
+    
+    self.isQ2Dupe = function() {
+        return (self.q2()['value'] != '' && (self.q2()['value'] === self.q1()['value']));
+    }
+    
+    self.isQ3Dupe = function() {
+        return (self.q3()['value'] != '' && ((self.q3()['value'] == self.q1()['value']) || (self.q3()['value'] == self.q2()['value'])));
+    }
+    
+    self.isQ5Dupe = function() {
+        return (self.q5()['value'] != '' && (self.q5()['value'] == self.q4()['value']));
+    }
+    
+    self.isQ6Dupe = function() {
+        return (self.q6()['value'] != '' && ((self.q6()['value'] == self.q4()['value']) || (self.q6()['value'] == self.q5()['value'])));
+    }
+    
+    self.isQ8Dupe = function() {
+        return (self.q8()['value'] != '' && (self.q8()['value'] == self.q7()['value']));
+    }
+    
+    self.isQ9Dupe = function() {
+        return (self.q9()['value'] != '' && ((self.q9()['value'] == self.q7()['value']) || (self.q9()['value'] == self.q8()['value'])));
+    }
 };
 
 var scoringModel = function () {
@@ -59,7 +83,7 @@ var scoringModel = function () {
             { value: -5, text: '-5' },
             { value: -3, text: '-3' },
             { value: -1, text: '-1' },
-            { value: 0, text: '0' },
+            { value: '0', text: '0' },
             { value: 1, text: '1' },
             { value: 3, text: '3' },
             { value: 5, text: '5' }
