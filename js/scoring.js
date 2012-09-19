@@ -21,6 +21,9 @@ var Score = function () {
     self.q8 = ko.observable("-999");
     self.q9 = ko.observable("-999");
     
+    self.bonus = ko.observable("");
+    self.halftime = ko.observable("");
+    
     self.r1 = ko.computed(function() {
         return ((self.q1()['value']>0)?self.q1()['value']:0) +
                ((self.q2()['value']>0)?self.q2()['value']:0) +
@@ -37,6 +40,10 @@ var Score = function () {
                ((self.q9()['value']>0)?self.q9()['value']:0);
     });
     
+    self.total = ko.computed(function() {
+        return self.r1() + self.r2() + self.r3() + +self.bonus() + +self.halftime();
+    });
+    
     self.invalidLeagueId = function() {
         if (self.leagueId() == '') return false;
         
@@ -46,7 +53,7 @@ var Score = function () {
 
 var scoringModel = function () {
     
-    this.defaultRows = 1;
+    this.defaultRows = 3;
     this.validScores = [
             { value: '', text: '' },
             { value: -5, text: '-5' },
