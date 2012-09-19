@@ -4,10 +4,18 @@ teams[1021] = 'Trivia Busters';
 teams[1022] = 'Show Me On The Doll Where HE Touched You';
 
 var Score = function () {
-    this.leagueId = ko.observable("");
-    this.teamName = ko.computed(function() {
-        return teams[this.leagueId()];
-    }, this);
+    var self = this;
+    
+    self.leagueId = ko.observable("");
+    self.teamName = ko.computed(function(element) {
+        return teams[self.leagueId()];
+    });
+    
+    self.invalidLeagueId = function() {
+        if (self.leagueId() == '') return false;
+        
+        return (teams[self.leagueId()] == undefined);
+    }
 };
 
 var scoringModel = function () {
