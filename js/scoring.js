@@ -76,10 +76,21 @@ var Score = function () {
 };
 
 var scoringModel = function () {
-    
+    var self = this;
+
     // get variables from URL
     this.franchise = location.search.substring(1,3).toUpperCase();
     this.showId    = location.search.substring(3);
+    this.showName  = ko.observable();
+    this.showTime  = ko.observable();
+
+    // fetch show name from server
+    $.ajax({
+        url: "/" + this.franchise.toLowerCase() + "/show/name/id/" + this.showId + "/format/json"
+    }).done(function(result) {
+        self.showName(result.name);
+        self.showTime(result.eventDate);
+    });
 
     this.defaultRows = 3;
     this.validScores = [
@@ -115,4 +126,4 @@ var scoringModel = function () {
     this.setRows(this.defaultRows)
 };
 
-ko.applyBindings(new scoringModel);
+ko.applyBindings(new scoringModel);    
