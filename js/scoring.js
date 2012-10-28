@@ -51,27 +51,27 @@ var Score = function () {
     }
     
     self.isQ2Dupe = function() {
-        return (self.q2()['value'] != '' && (self.q2()['value'] === self.q1()['value']));
+        return (self.q2()['value'] != '' && (Math.abs(self.q2()['value']) == Math.abs(self.q1()['value'])));
     }
     
     self.isQ3Dupe = function() {
-        return (self.q3()['value'] != '' && ((self.q3()['value'] == self.q1()['value']) || (self.q3()['value'] == self.q2()['value'])));
+        return (self.q3()['value'] != '' && ((Math.abs(self.q3()['value']) == Math.abs(self.q1()['value'])) || (Math.abs(self.q3()['value']) == Math.abs(self.q2()['value']))));
     }
     
     self.isQ5Dupe = function() {
-        return (self.q5()['value'] != '' && (self.q5()['value'] == self.q4()['value']));
+        return (self.q5()['value'] != '' && (Math.abs(self.q5()['value']) == Math.abs(self.q4()['value'])));
     }
     
     self.isQ6Dupe = function() {
-        return (self.q6()['value'] != '' && ((self.q6()['value'] == self.q4()['value']) || (self.q6()['value'] == self.q5()['value'])));
+        return (self.q6()['value'] != '' && ((Math.abs(self.q6()['value']) == Math.abs(self.q4()['value'])) || (Math.abs(self.q6()['value']) == Math.abs(self.q5()['value']))));
     }
     
     self.isQ8Dupe = function() {
-        return (self.q8()['value'] != '' && (self.q8()['value'] == self.q7()['value']));
+        return (self.q8()['value'] != '' && (Math.abs(self.q8()['value']) == Math.abs(self.q7()['value'])));
     }
     
     self.isQ9Dupe = function() {
-        return (self.q9()['value'] != '' && ((self.q9()['value'] == self.q7()['value']) || (self.q9()['value'] == self.q8()['value'])));
+        return (self.q9()['value'] != '' && ((Math.abs(self.q9()['value']) == Math.abs(self.q7()['value'])) || (Math.abs(self.q9()['value']) == Math.abs(self.q8()['value']))));
     }
 };
 
