@@ -50,7 +50,7 @@
         <div id="container">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <span class="brand">Team Trivia Scoring</span>
+                    <span class="brand">Team Trivia Scoring <span data-bind="text: franchise"></span></span>
                     <form class="navbar-form pull-right" data-bind="submit: setRowsFromForm">
                         <input name="numRows" type="text" class="input-mini" data-bind="value: scores().length">
                         <button type="submit" class="btn">Set # Teams</button>
@@ -91,7 +91,7 @@
                             <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
                             <div class="input-append">
                                 <input type="text" class="input-xmini" data-bind="value: leagueId">
-                                <span class="add-on">WI</span>
+                                <span class="add-on" data-bind="text: $parent.franchise"></span>
                             </div>
                             </div>
                         </td>

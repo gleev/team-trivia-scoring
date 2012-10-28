@@ -77,6 +77,10 @@ var Score = function () {
 
 var scoringModel = function () {
     
+    // get variables from URL
+    this.franchise = location.search.substring(1,3).toUpperCase();
+    this.showId    = location.search.substring(3);
+
     this.defaultRows = 3;
     this.validScores = [
             { value: '', text: '' },
