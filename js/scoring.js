@@ -1,14 +1,9 @@
-var teams = [];
-teams[1020] = 'Insert Clever Name Here';
-teams[1021] = 'Trivia Busters';
-teams[1022] = 'Show Me On The Doll Where HE Touched You';
-
 var Score = function () {
     var self = this;
     
     self.leagueId = ko.observable("");
     self.teamName = ko.computed(function() {
-        return teams[self.leagueId()];
+        return window.teams[self.leagueId()];
     });
     
     self.q1 = ko.observable("");
@@ -104,7 +99,13 @@ var scoringModel = function () {
             { value: 5, text: '5' }
     ];
     
-    this.teams = ko.observableArray();
+    // fetch team listing from server
+    //window.teams = ko.observableArray();
+    $.ajax({
+        url: "/" + this.franchise.toLowerCase() + "/team/list/format/json"
+    }).done(function(result) {
+        window.teams = result.teams;
+    });
     
     this.scores = ko.observableArray();
     
@@ -126,4 +127,11 @@ var scoringModel = function () {
     this.setRows(this.defaultRows)
 };
 
-ko.applyBindings(new scoringModel);    
+$(function() {
+    $.ajax({
+        url: "/" + location.search.substring(1,3) + "/team/list/format/json"
+    }).done(function(result) {
+        window.teams = result.teams;
+        ko.applyBindings(new scoringModel);
+    });
+});
