@@ -5,7 +5,8 @@ var Score = function () {
     self.teamName = ko.computed(function() {
         return teams[self.leagueId()];
     });
-    
+    self.players = ko.observable("");
+
     self.q1 = ko.observable("");
     self.q2 = ko.observable("");
     self.q3 = ko.observable("");

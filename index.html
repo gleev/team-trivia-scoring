@@ -106,7 +106,7 @@
                                 </div>
                             </td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><input type="text" class="input-xxmini"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: players"></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -188,16 +188,9 @@
                     </thead>
                     <tbody data-bind="foreach: scores">
                         <tr>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
-                                <div class="input-append">
-                                    <input type="text" class="input-xmini" data-bind="value: leagueId">
-                                    <span class="add-on" data-bind="text: $parent.franchise"></span>
-                                </div>
-                                </div>
-                            </td>
+                            <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><input type="text" class="input-xxmini"></td>
+                            <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -261,9 +254,9 @@
                     </thead>
                     <tbody data-bind="foreach: scores">
                         <tr>
-                            <td><span class="input-small uneditable-input" data-bind="text: leagueId"></span></td>
+                            <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><span class="input-mini uneditable-input"></span></td>
+                            <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
                             <td><span class="input-xlarge uneditable-input"></td>
                             <td><span class="input-mini uneditable-input" data-bind="text: total"></span></td>
                         </tr>                    
