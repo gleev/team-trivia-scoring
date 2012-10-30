@@ -17,9 +17,22 @@ var Score = function () {
     self.q8 = ko.observable("");
     self.q9 = ko.observable("");
     
-    self.bonus = ko.observable("");
+    self.firstHalfBonus = ko.observable("");
     self.halftime = ko.observable("");
-    
+
+    self.q11 = ko.observable("");
+    self.q12 = ko.observable("");
+    self.q13 = ko.observable("");
+    self.q14 = ko.observable("");
+    self.q15 = ko.observable("");
+    self.q16 = ko.observable("");
+    self.q17 = ko.observable("");
+    self.q18 = ko.observable("");
+    self.q19 = ko.observable("");
+
+    self.secondHalfBonus = ko.observable("");
+    self.finalQuestion = ko.observable("");
+
     self.r1 = ko.computed(function() {
         return ((self.q1()['value']>0)?self.q1()['value']:0) +
                ((self.q2()['value']>0)?self.q2()['value']:0) +
@@ -35,9 +48,32 @@ var Score = function () {
                ((self.q8()['value']>0)?self.q8()['value']:0) +
                ((self.q9()['value']>0)?self.q9()['value']:0);
     });
+    self.r4 = ko.computed(function() {
+        return ((self.q11()['value']>0)?self.q11()['value']:0) +
+               ((self.q12()['value']>0)?self.q12()['value']:0) +
+               ((self.q13()['value']>0)?self.q13()['value']:0);
+    });
+    self.r5 = ko.computed(function() {
+        return ((self.q14()['value']>0)?self.q14()['value']:0) +
+               ((self.q15()['value']>0)?self.q15()['value']:0) +
+               ((self.q16()['value']>0)?self.q16()['value']:0);
+    });
+    self.r6 = ko.computed(function() {
+        return ((self.q17()['value']>0)?self.q17()['value']:0) +
+               ((self.q18()['value']>0)?self.q18()['value']:0) +
+               ((self.q19()['value']>0)?self.q19()['value']:0);
+    });
     
-    self.total = ko.computed(function() {
-        return self.r1() + self.r2() + self.r3() + +self.bonus() + +self.halftime();
+    self.firstHalfTotal = ko.computed(function() {
+        return self.r1() + self.r2() + self.r3() + +self.firstHalfBonus() + +self.halftime();
+    });
+    
+    self.secondHalfTotal = ko.computed(function() {
+        return self.r4() + self.r5() + self.r6();
+    });
+
+    self.grandTotal = ko.computed(function() {
+        return +self.firstHalfTotal() + +self.secondHalfTotal() + +self.secondHalfBonus() + +self.finalQuestion();
     });
     
     self.invalidLeagueId = function() {
@@ -68,6 +104,30 @@ var Score = function () {
     
     self.isQ9Dupe = function() {
         return (self.q9()['value'] != '' && ((Math.abs(self.q9()['value']) == Math.abs(self.q7()['value'])) || (Math.abs(self.q9()['value']) == Math.abs(self.q8()['value']))));
+    }
+
+    self.isQ12Dupe = function() {
+        return (self.q12()['value'] != '' && (Math.abs(self.q12()['value']) == Math.abs(self.q11()['value'])));
+    }
+    
+    self.isQ13Dupe = function() {
+        return (self.q13()['value'] != '' && ((Math.abs(self.q13()['value']) == Math.abs(self.q11()['value'])) || (Math.abs(self.q13()['value']) == Math.abs(self.q12()['value']))));
+    }
+    
+    self.isQ15Dupe = function() {
+        return (self.q15()['value'] != '' && (Math.abs(self.q15()['value']) == Math.abs(self.q14()['value'])));
+    }
+    
+    self.isQ16Dupe = function() {
+        return (self.q16()['value'] != '' && ((Math.abs(self.q16()['value']) == Math.abs(self.q14()['value'])) || (Math.abs(self.q16()['value']) == Math.abs(self.q15()['value']))));
+    }
+    
+    self.isQ18Dupe = function() {
+        return (self.q18()['value'] != '' && (Math.abs(self.q18()['value']) == Math.abs(self.q17()['value'])));
+    }
+    
+    self.isQ19Dupe = function() {
+        return (self.q19()['value'] != '' && ((Math.abs(self.q19()['value']) == Math.abs(self.q17()['value'])) || (Math.abs(self.q19()['value']) == Math.abs(self.q18()['value']))));
     }
 };
 
