@@ -124,6 +124,14 @@ var scoringModel = function () {
         }        
     }
     
+    this.showSection = function(section) {
+        $('.section').hide();
+        $('ul.nav li').removeClass('active');
+        
+        $('#' + section).toggle();
+        $('#' + section + "-nav").addClass('active');
+    }
+
     this.sendScores = function() {
         var data = ko.toJS(this);
 
