@@ -161,7 +161,6 @@ var scoringModel = function () {
     ];
     
     // fetch team listing from server
-    //window.teams = ko.observableArray();
     $.ajax({
         url: "/" + this.franchise.toLowerCase() + "/team/list/format/json"
     }).done(function(result) {
