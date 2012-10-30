@@ -3,7 +3,7 @@ var Score = function () {
     
     self.leagueId = ko.observable("");
     self.teamName = ko.computed(function() {
-        return window.teams[self.leagueId()];
+        return teams[self.leagueId()];
     });
     
     self.q1 = ko.observable("");
@@ -128,6 +128,7 @@ var scoringModel = function () {
 };
 
 $(function() {
+    // load the team list into the global scope before binding the UI
     $.ajax({
         url: "/" + location.search.substring(1,3) + "/team/list/format/json"
     }).done(function(result) {
