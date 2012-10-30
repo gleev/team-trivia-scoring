@@ -163,25 +163,26 @@
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
                             <th rowspan="2"># Players</th>
-                            <th colspan="4">Round 1</th>
-                            <th colspan="4">Round 2</th>
-                            <th colspan="4">Round 3</th>
+                            <th colspan="4">Round 4</th>
+                            <th colspan="4">Round 5</th>
+                            <th colspan="4">Round 6</th>
+                            <th rowspan="2">2nd Half Total</th>
                             <th rowspan="2">2nd Half Bonus</th>
-                            <th rowspan="2">1/2 Time Question</th>
-                            <th rowspan="2">1st Half Total</th>
+                            <th rowspan="2">Final Question</th>
+                            <th rowspan="2">Grand Total</th>
                         </tr>
                         <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
+                            <th>11</th>
+                            <th>12</th>
+                            <th>13</th>
                             <th>Total</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
+                            <th>14</th>
+                            <th>15</th>
+                            <th>16</th>
                             <th>Total</th>
-                            <th>7</th>
-                            <th>8</th>
-                            <th>9</th>
+                            <th>17</th>
+                            <th>18</th>
+                            <th>19</th>
                             <th>Total</th>
                         </tr>
                     </thead>
@@ -240,6 +241,7 @@
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r3"></span></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: bonus"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: halftime"></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: halftime"></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: total"></span></td>
                         </tr>                    
@@ -250,88 +252,20 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th rowspan="2">League #</th>
-                            <th rowspan="2">Team Name</th>
-                            <th rowspan="2"># Players</th>
-                            <th colspan="4">Round 1</th>
-                            <th colspan="4">Round 2</th>
-                            <th colspan="4">Round 3</th>
-                            <th rowspan="2">Ranking</th>
-                            <th rowspan="2">1/2 Time Question</th>
-                            <th rowspan="2">1st Half Total</th>
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>Total</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
-                            <th>Total</th>
-                            <th>7</th>
-                            <th>8</th>
-                            <th>9</th>
-                            <th>Total</th>
+                            <th>League #</th>
+                            <th>Team Name</th>
+                            <th># Players</th>
+                            <th>City</th>
+                            <th>Score</th>
                         </tr>
                     </thead>
                     <tbody data-bind="foreach: scores">
                         <tr>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
-                                <div class="input-append">
-                                    <input type="text" class="input-xmini" data-bind="value: leagueId">
-                                    <span class="add-on" data-bind="text: $parent.franchise"></span>
-                                </div>
-                                </div>
-                            </td>
-                            <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><input type="text" class="input-xxmini"></td>
-                            <td>
-                                <select class="input-xmini" data-bind='value: q1, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                            </td>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: isQ2Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q2, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: isQ3Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q3, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                                </div>
-                            </td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: r1"></span></td>
-                            <td>
-                                <select class="input-xmini" data-bind='value: q4, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                            </td>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: isQ5Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q5, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: isQ6Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q6, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                                </div>
-                            </td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: r2"></span></td>
-                            <td>
-                                <select class="input-xmini" data-bind='value: q7, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                            </td>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: isQ8Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q8, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="control-group" data-bind="css: { error: isQ9Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q9, options: $parent.validScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
-                                </div>
-                            </td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: r3"></span></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: bonus"></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: halftime"></td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: total"></span></td>
+                            <td><span class="input-small uneditable-input" data-bind="text: leagueId"></span></td>
+                            <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
+                            <td><span class="input-mini uneditable-input"></span></td>
+                            <td><span class="input-xlarge uneditable-input"></td>
+                            <td><span class="input-mini uneditable-input" data-bind="text: total"></span></td>
                         </tr>                    
                     </tbody>
                 </table>                
