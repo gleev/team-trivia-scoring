@@ -124,6 +124,17 @@ var scoringModel = function () {
         }        
     }
     
+    this.sendScores = function() {
+        var data = ko.toJS(this);
+
+        // clean up JS object before sending to server
+        delete data.showName;
+        delete data.showTime;
+        delete data.validScores;
+
+        alert(JSON.stringify(data));
+    }
+
     this.setRows(this.defaultRows)
 };
 
