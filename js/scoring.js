@@ -149,7 +149,7 @@ var scoringModel = function () {
     });
 
     this.defaultRows = 3;
-    this.validScores = [
+    this.validFirstHalfScores = [
             { value: '', text: '' },
             { value: -5, text: '-5' },
             { value: -3, text: '-3' },
@@ -158,6 +158,16 @@ var scoringModel = function () {
             { value: 1, text: '1' },
             { value: 3, text: '3' },
             { value: 5, text: '5' }
+    ];
+    this.validSecondHalfScores = [
+            { value: '', text: '' },
+            { value: -6, text: '-6' },
+            { value: -4, text: '-4' },
+            { value: -2, text: '-2' },
+            { value: '0', text: '0' },
+            { value: 2, text: '2' },
+            { value: 4, text: '4' },
+            { value: 5, text: '6' }
     ];
     
     // fetch team listing from server
@@ -198,7 +208,8 @@ var scoringModel = function () {
         // clean up JS object before sending to server
         delete data.showName;
         delete data.showTime;
-        delete data.validScores;
+        delete data.validFirstHalfScores;
+        delete data.validSecondHalfScores;
 
         alert(JSON.stringify(data));
     }
