@@ -136,13 +136,17 @@ var scoringModel = function () {
 
     // get variables from URL
     this.franchise = location.search.substring(1,3).toUpperCase();
-    this.showId    = location.search.substring(3);
     this.showName  = ko.observable();
     this.showTime  = ko.observable();
 
     // fetch show name from server
+    if (window.isTournament) {
+        this.showUrl = "/" + this.franchise.toLowerCase() + "/tournament/name/id/" + window.showId + "/format/json";
+    } else {
+        this.showUrl = "/" + this.franchise.toLowerCase() + "/show/name/id/" + window.showId + "/format/json";
+    }
     $.ajax({
-        url: "/" + this.franchise.toLowerCase() + "/show/name/id/" + this.showId + "/format/json"
+        url: self.showUrl
     }).done(function(result) {
         self.showName(result.name);
         self.showTime(result.eventDate);
@@ -169,13 +173,6 @@ var scoringModel = function () {
             { value: 4, text: '4' },
             { value: 5, text: '6' }
     ];
-    
-    // fetch team listing from server
-    $.ajax({
-        url: "/" + this.franchise.toLowerCase() + "/team/list/format/json"
-    }).done(function(result) {
-        window.teams = result.teams;
-    });
     
     this.scores = ko.observableArray();
     
@@ -218,6 +215,14 @@ var scoringModel = function () {
 };
 
 $(function() {
+    if (location.search.substring(3, 4) == 't') {
+        window.isTournament = true;
+        window.showId = location.search.substring(4);
+    } else {
+        window.isTournament = false;
+        window.showId = location.search.substring(3);
+    }
+
     // load the team list into the global scope before binding the UI
     $.ajax({
         url: "/" + location.search.substring(1,3) + "/team/list/format/json"
