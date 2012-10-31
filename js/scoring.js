@@ -141,12 +141,12 @@ var scoringModel = function () {
 
     // fetch show name from server
     if (window.isTournament) {
-        this.showUrl = "/" + this.franchise.toLowerCase() + "/tournament/name/id/" + window.showId + "/format/json";
+        this.showUrl = "/" + this.franchise.toLowerCase() + "/tournament";
     } else {
-        this.showUrl = "/" + this.franchise.toLowerCase() + "/show/name/id/" + window.showId + "/format/json";
+        this.showUrl = "/" + this.franchise.toLowerCase() + "/show";
     }
     $.ajax({
-        url: self.showUrl
+        url: self.showUrl + "/name/id/" + window.showId + "/format/json"
     }).done(function(result) {
         self.showName(result.name);
         self.showTime(result.eventDate);
@@ -205,6 +205,8 @@ var scoringModel = function () {
         // clean up JS object before sending to server
         delete data.showName;
         delete data.showTime;
+        delete data.showUrl;
+        delete data.defaultRows;
         delete data.validFirstHalfScores;
         delete data.validSecondHalfScores;
 
