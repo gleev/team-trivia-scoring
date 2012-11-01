@@ -139,6 +139,7 @@ var scoringModel = function () {
     this.franchise = location.search.substring(1,3).toUpperCase();
     this.showName  = ko.observable();
     this.showTime  = ko.observable();
+    this.venue     = ko.observable();
 
     // fetch show name from server
     if (window.isTournament) {
@@ -152,6 +153,16 @@ var scoringModel = function () {
         self.showName(result.name);
         self.showTime(result.eventDate);
     });
+
+    // fetch venue info
+    if (window.isTournament) {
+        $.ajax({
+            url: self.showUrl + "/venue/id/" + window.venueId + "/format/json"
+        }).done(function(result) {
+            self.venue(" - " + result.venue);
+        });
+    }
+    
 
     this.defaultRows = 3;
     this.validFirstHalfScores = [
@@ -239,7 +250,8 @@ var scoringModel = function () {
 $(function() {
     if (location.search.substring(3, 4) == 't') {
         window.isTournament = true;
-        window.showId = location.search.substring(4);
+        window.showId = location.search.split(/_/)[0].substring(4);
+        window.venueId = location.search.split(/_/)[1];
     } else {
         window.isTournament = false;
         window.showId = location.search.substring(3);
