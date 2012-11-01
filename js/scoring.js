@@ -140,6 +140,7 @@ var scoringModel = function () {
     this.showName  = ko.observable();
     this.showTime  = ko.observable();
     this.venue     = ko.observable();
+    this.venueId   = ko.observable(window.venueId);
 
     // fetch show name from server
     if (window.isTournament) {
@@ -240,6 +241,7 @@ var scoringModel = function () {
                     score.dbId(e);
                 }
             });
+            alert("Data saved");
         });
     }
 
