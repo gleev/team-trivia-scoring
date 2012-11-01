@@ -1,6 +1,7 @@
 var Score = function () {
     var self = this;
     
+    self.dbId     = ko.observable("");
     self.leagueId = ko.observable("");
     self.teamName = ko.computed(function() {
         return teams[self.leagueId()];
@@ -200,18 +201,37 @@ var scoringModel = function () {
     }
 
     this.sendScores = function() {
-        var data = ko.toJS(this);
+        scoreData = ko.toJS(this);
 
-        // clean up JS object before sending to server
-        delete data.showName;
-        delete data.showTime;
-        delete data.showUrl;
-        delete data.defaultRows;
-        delete data.validFirstHalfScores;
-        delete data.validSecondHalfScores;
-
-        alert(JSON.stringify(data));
+        // clean up top-level of JS object before sending to server
+        delete scoreData.showName;
+        delete scoreData.showTime;
+        delete scoreData.showUrl;
+        delete scoreData.defaultRows;
+        delete scoreData.validFirstHalfScores;
+        delete scoreData.validSecondHalfScores;
+        delete scoreData.sendScores;
+        delete scoreData.setRows;
+        delete scoreData.setRowsFromForm;
+        delete scoreData.showSection;
+        
+        $.ajax({
+            type: "POST",
+            url: self.showUrl + "/scores/id/" + window.showId + "/format/json",
+            data: scoreData
+        }).done(function(result) {
+            $.each(result.teams, function (i, e) {
+                var score = ko.utils.arrayFirst(
+                    self.scores(), 
+                    function(item) { return item.leagueId() == i }
+                );
+                if (score) {
+                    score.dbId(e);
+                }
+            });
+        });
     }
+
 
     this.setRows(this.defaultRows)
 };
