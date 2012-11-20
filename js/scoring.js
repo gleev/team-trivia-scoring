@@ -163,7 +163,7 @@ var scoringModel = function () {
             self.venue(" - " + result.venue);
         });
     }
-    
+
 
     this.defaultRows = 3;
     this.validFirstHalfScores = [
@@ -184,30 +184,30 @@ var scoringModel = function () {
             { value: '0', text: '0' },
             { value: 2, text: '2' },
             { value: 4, text: '4' },
-            { value: 5, text: '6' }
+            { value: 6, text: '6' }
     ];
-    
+
     this.scores = ko.observableArray();
-    
+
     this.setRowsFromForm = function(element) {
         numRows = element.numRows.value;
         this.setRows(numRows);
     }
-    
+
     this.setRows = function(numRows) {
         while (this.scores().length > numRows) {
             this.scores.pop();
         }
-        
+
         while (this.scores().length < numRows) {
             this.scores.push(new Score());
-        }        
+        }
     }
-    
+
     this.showSection = function(section) {
         $('.section').hide();
         $('ul.nav li').removeClass('active');
-        
+
         $('#' + section).toggle();
         $('#' + section + "-nav").addClass('active');
     }
@@ -226,7 +226,7 @@ var scoringModel = function () {
         delete scoreData.setRows;
         delete scoreData.setRowsFromForm;
         delete scoreData.showSection;
-        
+
         $.ajax({
             type: "POST",
             url: self.showUrl + "/scores/id/" + window.showId + "/format/json",
@@ -234,7 +234,7 @@ var scoringModel = function () {
         }).done(function(result) {
             $.each(result.teams, function (i, e) {
                 var score = ko.utils.arrayFirst(
-                    self.scores(), 
+                    self.scores(),
                     function(item) { return item.leagueId() == i }
                 );
                 if (score) {
