@@ -142,6 +142,7 @@ var scoringModel = function () {
     this.showTime  = ko.observable();
     this.venue     = ko.observable();
     this.venueId   = ko.observable(window.venueId);
+    this.venueCity = ko.observable();
 
     // fetch show name from server
     if (window.isTournament) {
@@ -154,6 +155,10 @@ var scoringModel = function () {
     }).done(function(result) {
         self.showName(result.name);
         self.showTime(result.eventDate);
+
+        if (self.showUrl.indexOf('show') != -1) {
+            self.venueCity(result.city);
+        }
     });
 
     // fetch venue info
@@ -162,6 +167,7 @@ var scoringModel = function () {
             url: self.showUrl + "/venue/id/" + window.venueId + "/format/json"
         }).done(function(result) {
             self.venue(" - " + result.venue);
+            self.venueCity = result.city;
         });
     }
 
@@ -233,6 +239,7 @@ var scoringModel = function () {
 
                     s.secondHalfBonus(e.secondHalfBonus);
                     s.finalQuestion(e.finalQuestion);
+
 
                     self.scores.push(s);
                 });
