@@ -4,9 +4,11 @@ var Score = function () {
     self.id       = ko.observable("");
     self.dbId     = ko.observable("");
     self.leagueId = ko.observable("");
-    self.teamName = ko.computed(function() {
-        return teams[self.leagueId()];
-    });
+    self.teamName = ko.observable("");
+
+//        ko.computed(function() {
+//        return teams[self.leagueId()];
+//    });
     self.players = ko.observable("");
 
     self.q1 = ko.observable("");
@@ -167,7 +169,7 @@ var scoringModel = function () {
             url: self.showUrl + "/venue/id/" + window.venueId + "/format/json"
         }).done(function(result) {
             self.venue(" - " + result.venue);
-            self.venueCity = result.city;
+            // self.venueCity(result.city);
         });
     }
 
@@ -213,6 +215,7 @@ var scoringModel = function () {
                     s.id(i + 1);
                     s.dbId(e.id);
                     s.leagueId(e.teamId);
+                    s.teamName(e.teamName);
                     s.players(e.players);
                     s.q1(self.findFirstHalfIndex(e.q1));
                     s.q2(self.findFirstHalfIndex(e.q2));
