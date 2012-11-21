@@ -164,8 +164,8 @@ var scoringModel = function () {
         });
     }
 
-
     this.defaultRows = 3;
+
     this.validFirstHalfScores = [
             { value: '', text: '' },
             { value: -5, text: '-5' },
@@ -188,6 +188,59 @@ var scoringModel = function () {
     ];
 
     this.scores = ko.observableArray();
+
+    // fetch any existing score data
+    if (window.isTournament) {
+        this.showUrl = "/" + this.franchise.toLowerCase() + "/tournament";
+    } else {
+        this.showUrl = "/" + this.franchise.toLowerCase() + "/show";
+    }
+    $.ajax({
+        url: self.showUrl + "/getscores/id/" + window.showId + "/format/json"
+    }).done(function(result) {
+            var scores = result.scores;
+            if (scores.length > 0) {
+                $.each(result.scores, function (i, e) {
+                    var s = new Score();
+
+                    s.dbId(e.id);
+                    s.leagueId(e.teamId);
+                    s.players(e.players);
+                    s.q1(self.findFirstHalfIndex(e.q1));
+                    s.q2(self.findFirstHalfIndex(e.q2));
+                    s.q3(self.findFirstHalfIndex(e.q3));
+                    s.q4(self.findFirstHalfIndex(e.q4));
+                    s.q5(self.findFirstHalfIndex(e.q5));
+                    s.q6(self.findFirstHalfIndex(e.q6));
+                    s.q7(self.findFirstHalfIndex(e.q7));
+                    s.q8(self.findFirstHalfIndex(e.q8));
+                    s.q9(self.findFirstHalfIndex(e.q9));
+
+                    s.firstHalfBonus(e.firstHalfBonus);
+                    s.halftime(e.halftime);
+
+                    s.q11(self.findSecondHalfIndex(e.q11));
+                    s.q12(self.findSecondHalfIndex(e.q12));
+                    s.q13(self.findSecondHalfIndex(e.q13));
+                    s.q14(self.findSecondHalfIndex(e.q14));
+                    s.q15(self.findSecondHalfIndex(e.q15));
+                    s.q16(self.findSecondHalfIndex(e.q16));
+                    s.q17(self.findSecondHalfIndex(e.q17));
+                    s.q18(self.findSecondHalfIndex(e.q18));
+                    s.q19(self.findSecondHalfIndex(e.q19));
+
+                    s.secondHalfBonus(e.secondHalfBonus);
+                    s.finalQuestion(e.finalQuestion);
+                    
+                    self.scores.push(s);
+                });
+            } else {
+                self.setRows(self.defaultRows);
+            }
+
+            //self.showName(result.name);
+            //self.showTime(result.eventDate);
+    });
 
     this.setRowsFromForm = function(element) {
         numRows = element.numRows.value;
@@ -245,8 +298,43 @@ var scoringModel = function () {
         });
     }
 
+    this.findFirstHalfIndex = function(v) {
+        switch(v) {
+            case -5:
+                return self.validFirstHalfScores[1];
+            case -3:
+                return self.validFirstHalfScores[2];
+            case -1:
+                return self.validFirstHalfScores[3];
+            case 0:
+                return self.validFirstHalfScores[4];
+            case 1:
+                return self.validFirstHalfScores[5];
+            case 3:
+                return self.validFirstHalfScores[6];
+            case 5:
+                return self.validFirstHalfScores[7];
+        }
+    }
 
-    this.setRows(this.defaultRows)
+    this.findSecondHalfIndex = function(v) {
+        switch(v) {
+            case -6:
+                return self.validSecondHalfScores[1];
+            case -4:
+                return self.validSecondHalfScores[2];
+            case -2:
+                return self.validSecondHalfScores[3];
+            case 0:
+                return self.validSecondHalfScores[4];
+            case 2:
+                return self.validSecondHalfScores[5];
+            case 4:
+                return self.validSecondHalfScores[6];
+            case 6:
+                return self.validSecondHalfScores[7];
+        }
+    }
 };
 
 $(function() {
