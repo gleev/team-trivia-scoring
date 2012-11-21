@@ -20,3 +20,5 @@ input[type="tel"], input[type="color"], .uneditable-input, .control-group,
 
 .left { text-align: left; }
 #second-half, #team-rankings { display: none; }
+
+.id-column { background-color:#dff0d8 }

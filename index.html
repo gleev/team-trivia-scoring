@@ -74,13 +74,15 @@
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
                             <th rowspan="2"># Players</th>
-                            <th rowspan="2">ID</th>
+                            <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 1</th>
                             <th colspan="4">Round 2</th>
+                            <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 3</th>
                             <th rowspan="2">1st Half Bonus</th>
                             <th rowspan="2">1/2 Time Question</th>
                             <th rowspan="2">1st Half Total</th>
+                            <th rowspan="2"  class="id-column">ID</th>
                         </tr>
                         <tr>
                             <th>1</th>
@@ -109,7 +111,7 @@
                             </td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: players"></td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
+                            <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -138,6 +140,7 @@
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r2"></span></td>
+                            <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q7, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -155,6 +158,7 @@
                             <td><input type="text" class="input-xxmini" data-bind="value: firstHalfBonus"></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: halftime"></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: firstHalfTotal"></span></td>
+                            <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                         </tr>                    
                     </tbody>
                 </table>
