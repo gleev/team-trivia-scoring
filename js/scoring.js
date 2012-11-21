@@ -1,6 +1,7 @@
 var Score = function () {
     var self = this;
     
+    self.id       = ko.observable("");
     self.dbId     = ko.observable("");
     self.leagueId = ko.observable("");
     self.teamName = ko.computed(function() {
@@ -203,6 +204,7 @@ var scoringModel = function () {
                 $.each(result.scores, function (i, e) {
                     var s = new Score();
 
+                    s.id(i + 1);
                     s.dbId(e.id);
                     s.leagueId(e.teamId);
                     s.players(e.players);
@@ -231,7 +233,7 @@ var scoringModel = function () {
 
                     s.secondHalfBonus(e.secondHalfBonus);
                     s.finalQuestion(e.finalQuestion);
-                    
+
                     self.scores.push(s);
                 });
             } else {
@@ -253,7 +255,9 @@ var scoringModel = function () {
         }
 
         while (this.scores().length < numRows) {
-            this.scores.push(new Score());
+            var s = new Score();
+            s.id(this.scores().length + 1);
+            this.scores.push(s);
         }
     }
 

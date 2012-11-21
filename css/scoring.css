@@ -18,9 +18,5 @@ input[type="tel"], input[type="color"], .uneditable-input, .control-group,
     margin-bottom: 0;
 }
 
-.uneditable-input {
-    margin-top: 4px;
-}
-
 .left { text-align: left; }
 #second-half, #team-rankings { display: none; }

@@ -43,6 +43,8 @@
             load: 'js/knockout-2.1.0.js'
         }, {
             load: 'js/scoring.js'
+        }, {
+            load: 'js/jquery.fixedtable.js'
         }]);
         </script>
     </head>
@@ -74,6 +76,7 @@
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
                             <th rowspan="2"># Players</th>
+                            <th rowspan="2">ID</th>
                             <th colspan="4">Round 1</th>
                             <th colspan="4">Round 2</th>
                             <th colspan="4">Round 3</th>
@@ -108,6 +111,7 @@
                             </td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: players"></td>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -164,6 +168,7 @@
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
                             <th rowspan="2"># Players</th>
+                            <th rowspan="2">ID</th>
                             <th colspan="4">Round 4</th>
                             <th colspan="4">Round 5</th>
                             <th colspan="4">Round 6</th>
@@ -191,7 +196,8 @@
                         <tr>
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: players"></span></td>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q11, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -234,7 +240,7 @@
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r6"></span></td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: secondHalfTotal"></td>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: secondHalfTotal"></span></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: secondHalfBonus"></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: finalQuestion"></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: grandTotal"></span></td>
@@ -249,6 +255,7 @@
                             <th>League #</th>
                             <th>Team Name</th>
                             <th># Players</th>
+                            <th>ID</th>
                             <th>City</th>
                             <th>Score</th>
                         </tr>
@@ -258,7 +265,8 @@
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
                             <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
-                            <td><span class="input-xlarge uneditable-input"></td>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
+                            <td><span class="input-xlarge uneditable-input"></span></td>
                             <td><span class="input-mini uneditable-input" data-bind="text: grandTotal"></span></td>
                         </tr>                    
                     </tbody>
