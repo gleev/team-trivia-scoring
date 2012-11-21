@@ -170,14 +170,16 @@
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
                             <th rowspan="2"># Players</th>
-                            <th rowspan="2">ID</th>
+                            <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 4</th>
                             <th colspan="4">Round 5</th>
+                            <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 6</th>
                             <th rowspan="2">2nd Half Total</th>
                             <th rowspan="2">2nd Half Bonus</th>
                             <th rowspan="2">Final Question</th>
                             <th rowspan="2">Grand Total</th>
+                            <th rowspan="2"  class="id-column">ID</th>
                         </tr>
                         <tr>
                             <th>11</th>
@@ -199,7 +201,7 @@
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: players"></span></td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
+                            <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q11, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -228,6 +230,7 @@
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r5"></span></td>
+                            <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q17, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
@@ -246,6 +249,7 @@
                             <td><input type="text" class="input-xxmini" data-bind="value: secondHalfBonus"></td>
                             <td><input type="text" class="input-xxmini" data-bind="value: finalQuestion"></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: grandTotal"></span></td>
+                            <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                         </tr>                    
                     </tbody>
                 </table>
