@@ -210,51 +210,48 @@ var scoringModel = function () {
     $.ajax({
         url: self.showUrl + "/getscores/id/" + window.showId + "/format/json"
     }).done(function(result) {
-            var scores = result.scores;
-            if (scores.length > 0) {
-                $.each(result.scores, function (i, e) {
-                    var s = new Score();
+        var scores = result.scores;
+        if (scores.length > 0) {
+            $.each(result.scores, function (i, e) {
+                var s = new Score();
 
-                    s.id(i + 1);
-                    s.dbId(e.id);
-                    if (e.teamId > 0) s.leagueId(e.teamId);
-                    s.teamName(e.teamName);
-                    s.players(e.players);
-                    s.q1(self.findFirstHalfIndex(e.q1));
-                    s.q2(self.findFirstHalfIndex(e.q2));
-                    s.q3(self.findFirstHalfIndex(e.q3));
-                    s.q4(self.findFirstHalfIndex(e.q4));
-                    s.q5(self.findFirstHalfIndex(e.q5));
-                    s.q6(self.findFirstHalfIndex(e.q6));
-                    s.q7(self.findFirstHalfIndex(e.q7));
-                    s.q8(self.findFirstHalfIndex(e.q8));
-                    s.q9(self.findFirstHalfIndex(e.q9));
+                s.id(i + 1);
+                s.dbId(e.id);
+                if (e.teamId > 0) s.leagueId(e.teamId);
+                s.teamName(e.teamName);
+                s.players(e.players);
+                s.q1(self.findFirstHalfIndex(e.q1));
+                s.q2(self.findFirstHalfIndex(e.q2));
+                s.q3(self.findFirstHalfIndex(e.q3));
+                s.q4(self.findFirstHalfIndex(e.q4));
+                s.q5(self.findFirstHalfIndex(e.q5));
+                s.q6(self.findFirstHalfIndex(e.q6));
+                s.q7(self.findFirstHalfIndex(e.q7));
+                s.q8(self.findFirstHalfIndex(e.q8));
+                s.q9(self.findFirstHalfIndex(e.q9));
 
-                    s.firstHalfBonus(e.firstHalfBonus);
-                    s.halftime(e.halftime);
+                s.firstHalfBonus(e.firstHalfBonus);
+                s.halftime(e.halftime);
 
-                    s.q11(self.findSecondHalfIndex(e.q11));
-                    s.q12(self.findSecondHalfIndex(e.q12));
-                    s.q13(self.findSecondHalfIndex(e.q13));
-                    s.q14(self.findSecondHalfIndex(e.q14));
-                    s.q15(self.findSecondHalfIndex(e.q15));
-                    s.q16(self.findSecondHalfIndex(e.q16));
-                    s.q17(self.findSecondHalfIndex(e.q17));
-                    s.q18(self.findSecondHalfIndex(e.q18));
-                    s.q19(self.findSecondHalfIndex(e.q19));
+                s.q11(self.findSecondHalfIndex(e.q11));
+                s.q12(self.findSecondHalfIndex(e.q12));
+                s.q13(self.findSecondHalfIndex(e.q13));
+                s.q14(self.findSecondHalfIndex(e.q14));
+                s.q15(self.findSecondHalfIndex(e.q15));
+                s.q16(self.findSecondHalfIndex(e.q16));
+                s.q17(self.findSecondHalfIndex(e.q17));
+                s.q18(self.findSecondHalfIndex(e.q18));
+                s.q19(self.findSecondHalfIndex(e.q19));
 
-                    s.secondHalfBonus(e.secondHalfBonus);
-                    s.finalQuestion(e.finalQuestion);
+                s.secondHalfBonus(e.secondHalfBonus);
+                s.finalQuestion(e.finalQuestion);
 
 
-                    self.scores.push(s);
-                });
-            } else {
-                self.setRows(self.defaultRows);
-            }
-
-            //self.showName(result.name);
-            //self.showTime(result.eventDate);
+                self.scores.push(s);
+            });
+        } else {
+            self.setRows(self.defaultRows);
+        }
     });
 
     this.setRowsFromForm = function(element) {
