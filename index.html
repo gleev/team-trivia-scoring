@@ -104,7 +104,7 @@
                             <td>
                                 <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
                                 <div class="input-append">
-                                    <input type="text" class="input-xmini" data-bind="value: leagueId">
+                                    <input type="text" class="input-xmini" data-bind="value: leagueId, event: { change: loadTeamName }">
                                     <span class="add-on" data-bind="text: $parent.franchise"></span>
                                 </div>
                                 </div>

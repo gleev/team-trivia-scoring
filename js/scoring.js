@@ -6,9 +6,6 @@ var Score = function () {
     self.leagueId = ko.observable("");
     self.teamName = ko.observable("");
 
-//        ko.computed(function() {
-//        return teams[self.leagueId()];
-//    });
     self.players = ko.observable("");
 
     self.q1 = ko.observable("");
@@ -84,6 +81,12 @@ var Score = function () {
         if (self.leagueId() == '') return false;
         
         return (teams[self.leagueId()] == undefined);
+    }
+
+    self.loadTeamName = function(data, event) {
+        if (event) { // only load team name if called explicitly by change event
+            self.teamName(teams[self.leagueId()]);
+        }
     }
     
     self.isQ2Dupe = function() {
@@ -214,7 +217,7 @@ var scoringModel = function () {
 
                     s.id(i + 1);
                     s.dbId(e.id);
-                    s.leagueId(e.teamId);
+                    if (e.teamId > 0) s.leagueId(e.teamId);
                     s.teamName(e.teamName);
                     s.players(e.players);
                     s.q1(self.findFirstHalfIndex(e.q1));
