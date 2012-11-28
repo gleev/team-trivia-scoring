@@ -297,24 +297,31 @@ var scoringModel = function () {
         delete scoreData.setRowsFromForm;
         delete scoreData.showSection;
 
-        $.ajax({
-            type: "POST",
-            url: self.showUrl + "/scores/id/" + window.showId + "/format/json",
-            data: scoreData
-        }).done(function(result) {
-            $.each(result.teams, function (i, e) {
-                var score = ko.utils.arrayFirst(
-                    self.scores(),
-                    function(item) { return item.leagueId() == i }
-                );
-                if (score) {
-                    score.dbId(e);
-                }
-            });
+        if (navigator.onLine) {
+            // we are online and can persist data to the server
+            $.ajax({
+                type: "POST",
+                url: self.showUrl + "/scores/id/" + window.showId + "/format/json",
+                data: scoreData
+            }).done(function(result) {
+                $.each(result.teams, function (i, e) {
+                    var score = ko.utils.arrayFirst(
+                        self.scores(),
+                        function(item) { return item.leagueId() == i }
+                    );
+                    if (score) {
+                        score.dbId(e);
+                    }
+                });
 
-            self.tracker().markCurrentStateAsClean();
-            alert("Data saved");
-        });
+                self.tracker().markCurrentStateAsClean();
+                alert("Data saved");
+            });
+        } else {
+            // we are offline, save data to localStorage
+            localStorage.setItem(window.showId, ko.toJSON(this));
+            alert ('You are offline. Data saved local in your browser storage.');
+        }
     }
 
     this.findFirstHalfIndex = function(v) {
