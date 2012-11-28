@@ -249,9 +249,12 @@ var scoringModel = function () {
 
                 self.scores.push(s);
             });
+            self.tracker().markCurrentStateAsClean();
         } else {
             self.setRows(self.defaultRows);
+            self.tracker().markCurrentStateAsClean();
         }
+
     });
 
     this.setRowsFromForm = function(element) {
@@ -308,6 +311,8 @@ var scoringModel = function () {
                     score.dbId(e);
                 }
             });
+
+            self.tracker().markCurrentStateAsClean();
             alert("Data saved");
         });
     }
@@ -351,6 +356,22 @@ var scoringModel = function () {
     }
 };
 
+function changeTracker(objectToTrack, hashFunction) {
+    hashFunction = hashFunction || ko.toJSON;
+    var lastCleanState = ko.observable(hashFunction(objectToTrack));
+
+    var result = {
+        somethingHasChanged : ko.computed(function() {
+            return hashFunction(objectToTrack) != lastCleanState()
+        }),
+        markCurrentStateAsClean : function() {
+            lastCleanState(hashFunction(objectToTrack));
+        }
+    };
+
+    return function() { return result }
+}
+
 $(function() {
     if (location.search.substring(3, 4) == 't') {
         window.isTournament = true;
@@ -366,6 +387,16 @@ $(function() {
         url: "/" + location.search.substring(1,3) + "/team/list/format/json"
     }).done(function(result) {
         window.teams = result.teams;
-        ko.applyBindings(new scoringModel);
+        var viewModel = new scoringModel();
+        viewModel.tracker = new changeTracker(viewModel);
+
+        ko.applyBindings(viewModel);
+
+        // set up warning dialog if a user exits the page without having saved
+        window.onbeforeunload = function () {
+            if (viewModel.tracker().somethingHasChanged()) {
+                return "You have unsaved changes. Are you sure you want to leave before saving?";
+            }
+        };
     });
 });
