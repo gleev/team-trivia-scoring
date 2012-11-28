@@ -268,7 +268,7 @@
                             <th>Score</th>
                         </tr>
                     </thead>
-                    <tbody data-bind="foreach: scores">
+                    <tbody data-bind="foreach: sortedScores">
                         <tr>
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>

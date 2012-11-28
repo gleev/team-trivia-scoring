@@ -178,6 +178,14 @@ var scoringModel = function () {
         this.showUrl = "/" + this.franchise.toLowerCase() + "/show";
     }
 
+    this.sortScores = function(a, b) {
+        return a.grandTotal() > b.grandTotal() ? 1 : -1;
+    };
+
+    this.sortedScores = ko.computed(function () {
+        return self.scores.slice().sort(self.sortScores).reverse();
+    });
+
     this.findFirstHalfIndex = function(v) {
         switch(v) {
             case -5:
