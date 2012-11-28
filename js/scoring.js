@@ -246,8 +246,55 @@ var scoringModel = function () {
     }
 
     if (localStorage.getItem(window.showId)) {
-        //fetch data from localStorage
-        alert('loading locally');
+        var localData = JSON.parse(localStorage.getItem(window.showId));
+
+        self.showName(localData.showName);
+        self.showTime(localData.showTime);
+
+        if (window.isTournament) {
+            self.venue(localData.venue);
+        } else {
+            self.venueCity(localData.venueCity);
+        }
+
+        $.each(localData.scores, function (i, e) {
+            var s = new Score();
+
+            s.id(i + 1);
+            s.dbId(e.dbId);
+            if (e.leagueId > 0) s.leagueId(e.leagueId);
+            s.teamName(e.teamName);
+            s.players(e.players);
+
+            s.q1(self.findFirstHalfIndex(e.q1.value));
+            s.q2(self.findFirstHalfIndex(e.q2.value));
+            s.q3(self.findFirstHalfIndex(e.q3.value));
+            s.q4(self.findFirstHalfIndex(e.q4.value));
+            s.q5(self.findFirstHalfIndex(e.q5.value));
+            s.q6(self.findFirstHalfIndex(e.q6.value));
+            s.q7(self.findFirstHalfIndex(e.q7.value));
+            s.q8(self.findFirstHalfIndex(e.q8.value));
+            s.q9(self.findFirstHalfIndex(e.q9.value));
+
+            s.firstHalfBonus(e.firstHalfBonus);
+            s.halftime(e.halftime);
+
+            s.q11(self.findSecondHalfIndex(e.q11.value));
+            s.q12(self.findSecondHalfIndex(e.q12.value));
+            s.q13(self.findSecondHalfIndex(e.q13.value));
+            s.q14(self.findSecondHalfIndex(e.q14.value));
+            s.q15(self.findSecondHalfIndex(e.q15.value));
+            s.q16(self.findSecondHalfIndex(e.q16.value));
+            s.q17(self.findSecondHalfIndex(e.q17.value));
+            s.q18(self.findSecondHalfIndex(e.q18.value));
+            s.q19(self.findSecondHalfIndex(e.q19.value));
+
+            s.secondHalfBonus(e.secondHalfBonus);
+            s.finalQuestion(e.finalQuestion);
+
+
+            self.scores.push(s);
+        });
     } else {
 
         // fetch show name from server
@@ -269,7 +316,7 @@ var scoringModel = function () {
             }).done(function(result) {
                     self.venue(" - " + result.venue);
                     // self.venueCity(result.city);
-                });
+            });
         }
 
         // fetch scores from server
@@ -338,7 +385,7 @@ var scoringModel = function () {
         delete scoreData.setRowsFromForm;
         delete scoreData.showSection;
 
-        if (false && navigator.onLine) {
+        if (navigator.onLine) {
             // we are online and can persist data to the server
             $.ajax({
                 type: "POST",
@@ -356,6 +403,10 @@ var scoringModel = function () {
                 });
 
                 self.tracker().markCurrentStateAsClean();
+
+                // delete any localStorage that may exist
+                localStorage.clear();
+
                 alert("Data saved");
             });
         } else {
