@@ -61,11 +61,13 @@
                         <button type="submit" class="btn">Set # Teams</button>
                     </form>
                 </div>
-                <ul class="nav">
-                  <li id="first-half-nav" class="active"><a href="#" data-bind="click: function(d, e) { showSection('first-half', d, e) }">First Half</a></li>
-                  <li id="second-half-nav"><a href="#" data-bind="click: function(d, e) { showSection('second-half', d, e) }">Second Half</a></li>
-                  <li id="team-rankings-nav"><a href="#" data-bind="click: function(d, e) { showSection('team-rankings', d, e) }">Team Rankings</a></li>
-                </ul>
+                <div class="row-fluid">
+                    <ul class="nav">
+                      <li id="first-half-nav" class="active"><a href="#" data-bind="click: function(d, e) { showSection('first-half', d, e) }">First Half</a></li>
+                      <li id="second-half-nav"><a href="#" data-bind="click: function(d, e) { showSection('second-half', d, e) }">Second Half</a></li>
+                      <li id="team-rankings-nav"><a href="#" data-bind="click: function(d, e) { showSection('team-rankings', d, e) }">Team Rankings</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="section" id="first-half">
                 <table class="table table-bordered table-hover">
