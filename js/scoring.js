@@ -179,7 +179,9 @@ var scoringModel = function () {
     }
 
     this.sortScores = function(a, b) {
-        return a.grandTotal() > b.grandTotal() ? 1 : -1;
+        if (a && b) {
+            return a.grandTotal() > b.grandTotal() ? 1 : -1;
+        }
     };
 
     this.sortedScores = ko.computed(function () {
