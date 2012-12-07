@@ -262,18 +262,18 @@
                         <tr>
                             <th>League #</th>
                             <th>Team Name</th>
-                            <th># Players</th>
-                            <th>City</th>
                             <th>Score</th>
+                            <th>City</th>
+                            <th># Players</th>
                         </tr>
                     </thead>
                     <tbody data-bind="foreach: sortedScores">
                         <tr>
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
-                            <td><span class="input-xlarge uneditable-input" data-bind="text: $parent.venueCity"></span></td>
                             <td><span class="input-mini uneditable-input" data-bind="text: grandTotal"></span></td>
+                            <td><span class="input-xlarge uneditable-input" data-bind="text: $parent.venueCity"></span></td>
+                            <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
                         </tr>                    
                     </tbody>
                 </table>                
