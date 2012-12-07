@@ -117,12 +117,12 @@
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, attr: { tabindex: $parent.scores().length * 4 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ2Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ2Dupe() }">
                                     <select class="input-xmini" data-bind='value: q2, attr: { tabindex: $parent.scores().length * 5 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ3Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ3Dupe() }">
                                     <select class="input-xmini" data-bind='value: q3, attr: { tabindex: $parent.scores().length * 6 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
@@ -131,12 +131,12 @@
                             <td>
                                 <select class="input-xmini" data-bind='value: q4, attr: { tabindex: $parent.scores().length * 7 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ5Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ5Dupe() }">
                                     <select class="input-xmini" data-bind='value: q5, attr: { tabindex: $parent.scores().length * 8 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ6Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ6Dupe() }">
                                     <select class="input-xmini" data-bind='value: q6, attr: { tabindex: $parent.scores().length * 9 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
@@ -146,12 +146,12 @@
                             <td>
                                 <select class="input-xmini" data-bind='value: q7, attr: { tabindex: $parent.scores().length * 10 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ8Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ8Dupe() }">
                                     <select class="input-xmini" data-bind='value: q8, attr: { tabindex: $parent.scores().length * 11 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ9Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ9Dupe() }">
                                     <select class="input-xmini" data-bind='value: q9, attr: { tabindex: $parent.scores().length * 12 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
@@ -207,12 +207,12 @@
                             <td>
                                 <select class="input-xmini" data-bind='value: q11, attr: { tabindex: $parent.scores().length * 15 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ12Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ12Dupe() }">
                                     <select class="input-xmini" data-bind='value: q12, attr: { tabindex: $parent.scores().length * 16 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ13Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ13Dupe() }">
                                     <select class="input-xmini" data-bind='value: q13, attr: { tabindex: $parent.scores().length * 17 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
@@ -221,12 +221,12 @@
                             <td>
                                 <select class="input-xmini" data-bind='value: q14, attr: { tabindex: $parent.scores().length * 18 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ15Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ15Dupe() }">
                                     <select class="input-xmini" data-bind='value: q15, attr: { tabindex: $parent.scores().length * 19 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ16Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ16Dupe() }">
                                     <select class="input-xmini" data-bind='value: q16, attr: { tabindex: $parent.scores().length * 20 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
@@ -236,12 +236,12 @@
                             <td>
                                 <select class="input-xmini" data-bind='value: q17, attr: { tabindex: $parent.scores().length * 21 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ18Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ18Dupe() }">
                                     <select class="input-xmini" data-bind='value: q18, attr: { tabindex: $parent.scores().length * 22 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td>
+                            <td data-bind="style: { backgroundColor: isQ19Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ19Dupe() }">
                                     <select class="input-xmini" data-bind='value: q19, attr: { tabindex: $parent.scores().length * 23 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
