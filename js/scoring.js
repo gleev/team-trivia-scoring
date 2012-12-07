@@ -444,6 +444,21 @@ function ChangeTracker(objectToTrack, hashFunction) {
 }
 
 $(function() {
+
+    // setup custom key bindings for arrow keys
+    // left-arrow translated to shift-tab
+    // right-arrow translated to tab
+    $(document).keydown(function(e) {
+        if (e.keyCode == 39) {
+            var nextIndex = parseInt($(":focus").attr('tabindex')) + 1;
+            $('[tabindex="' + nextIndex + '"]').focus();
+        }
+        if (e.keyCode == 37) {
+            var previousIndex = parseInt($(":focus").attr('tabindex')) - 1;
+            $('[tabindex="' + previousIndex + '"]').focus();
+        }
+    });
+
     if (location.search.substring(3, 4) == 't') {
         window.isTournament = true;
         window.showId = location.search.split(/_/)[0].substring(4);

@@ -106,59 +106,59 @@
                             <td>
                                 <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
                                 <div class="input-append">
-                                    <input type="text" class="input-xmini" data-bind="value: leagueId, event: { change: loadTeamName }">
+                                    <input type="text" class="input-xmini" data-bind="value: leagueId, attr: { tabindex: $parent.scores().length * 1 + id() }, event: { change: loadTeamName }">
                                     <span class="add-on" data-bind="text: $parent.franchise"></span>
                                 </div>
                                 </div>
                             </td>
-                            <td><input type="text" class="input-xlarge" data-bind="value: teamName"></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: players"></td>
+                            <td><input type="text" class="input-xlarge" data-bind="value: teamName, attr: { tabindex: $parent.scores().length * 2 + id() }"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: players, attr: { tabindex: $parent.scores().length * 3 + id() }"></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
-                                <select class="input-xmini" data-bind='value: q1, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                <select class="input-xmini" data-bind='value: q1, attr: { tabindex: $parent.scores().length * 4 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ2Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q2, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q2, attr: { tabindex: $parent.scores().length * 5 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ3Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q3, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q3, attr: { tabindex: $parent.scores().length * 6 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r1"></span></td>
                             <td>
-                                <select class="input-xmini" data-bind='value: q4, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                <select class="input-xmini" data-bind='value: q4, attr: { tabindex: $parent.scores().length * 7 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ5Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q5, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q5, attr: { tabindex: $parent.scores().length * 8 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ6Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q6, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q6, attr: { tabindex: $parent.scores().length * 9 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r2"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
-                                <select class="input-xmini" data-bind='value: q7, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                <select class="input-xmini" data-bind='value: q7, attr: { tabindex: $parent.scores().length * 10 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ8Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q8, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q8, attr: { tabindex: $parent.scores().length * 11 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ9Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q9, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q9, attr: { tabindex: $parent.scores().length * 12 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r3"></span></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: firstHalfBonus"></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: halftime"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: firstHalfBonus, attr: { tabindex: $parent.scores().length * 13 + id() }"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: halftime, attr: { tabindex: $parent.scores().length * 14 + id() }"></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: firstHalfTotal"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                         </tr>                    
@@ -205,52 +205,52 @@
                             <td><span class="input-xxmini uneditable-input" data-bind="text: players"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
-                                <select class="input-xmini" data-bind='value: q11, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                <select class="input-xmini" data-bind='value: q11, attr: { tabindex: $parent.scores().length * 15 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ12Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q12, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q12, attr: { tabindex: $parent.scores().length * 16 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ13Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q13, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q13, attr: { tabindex: $parent.scores().length * 17 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r4"></span></td>
                             <td>
-                                <select class="input-xmini" data-bind='value: q14, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                <select class="input-xmini" data-bind='value: q14, attr: { tabindex: $parent.scores().length * 18 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ15Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q15, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q15, attr: { tabindex: $parent.scores().length * 19 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ16Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q16, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q16, attr: { tabindex: $parent.scores().length * 20 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r5"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
-                                <select class="input-xmini" data-bind='value: q17, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                <select class="input-xmini" data-bind='value: q17, attr: { tabindex: $parent.scores().length * 21 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ18Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q18, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q18, attr: { tabindex: $parent.scores().length * 22 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: isQ19Dupe() }">
-                                    <select class="input-xmini" data-bind='value: q19, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
+                                    <select class="input-xmini" data-bind='value: q19, attr: { tabindex: $parent.scores().length * 23 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r6"></span></td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: secondHalfTotal"></span></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: secondHalfBonus"></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: finalQuestion"></td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: grandTotal"></span></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: secondHalfBonus, attr: { tabindex: $parent.scores().length * 24 + id() }"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: finalQuestion, attr: { tabindex: $parent.scores().length * 25 + id() }"></td>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: grandTotal, attr: { tabindex: $parent.scores().length * 26 + id() }"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                         </tr>                    
                     </tbody>
