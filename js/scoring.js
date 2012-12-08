@@ -88,6 +88,18 @@ var Score = function () {
             self.teamName(teams[self.leagueId()]);
         }
     }
+
+    self.getRank = function(index, parent) {
+        var scores = $.map(parent.sortedScores(), function (e) {
+            return e.grandTotal();
+        });
+
+        var uniqueScores = $.grep(scores, function(el, i){
+            return i == $.inArray(el , scores);
+        });
+
+        return $.inArray(self.grandTotal(), uniqueScores) + 1;
+    }
     
     self.isQ2Dupe = function() {
         return (self.q2()['value'] != '' && self.q2()['value'] != 0 && (Math.abs(self.q2()['value']) == Math.abs(self.q1()['value'])));
@@ -452,12 +464,12 @@ $(function() {
         if (e.keyCode == 39) {
             var nextIndex = parseInt($(":focus").attr('tabindex')) + 1;
             $('[tabindex="' + nextIndex + '"]').focus();
-            return false();
+            return false;
         }
         if (e.keyCode == 37) {
             var previousIndex = parseInt($(":focus").attr('tabindex')) - 1;
             $('[tabindex="' + previousIndex + '"]').focus();
-            return false();
+            return false;
         }
     });
 

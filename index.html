@@ -260,6 +260,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th>Rank</th>
                             <th>League #</th>
                             <th>Team Name</th>
                             <th>Score</th>
@@ -269,6 +270,7 @@
                     </thead>
                     <tbody data-bind="foreach: sortedScores">
                         <tr>
+                            <td><span class="input-mini uneditable-input" data-bind="text: getRank($index, $parent)"></span></td>
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
                             <td><span class="input-mini uneditable-input" data-bind="text: grandTotal"></span></td>
