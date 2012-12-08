@@ -36,33 +36,33 @@ var Score = function () {
 
     self.r1 = ko.computed(function() {
         return ((self.q1()['value']>0)?self.q1()['value']:0) +
-               ((self.q2()['value']>0)?self.q2()['value']:0) +
-               ((self.q3()['value']>0)?self.q3()['value']:0);
+               ((self.q2()['value']>0 && !self.isQ2Dupe())?self.q2()['value']:0) +
+               ((self.q3()['value']>0 && !self.isQ3Dupe())?self.q3()['value']:0);
     });
     self.r2 = ko.computed(function() {
         return ((self.q4()['value']>0)?self.q4()['value']:0) +
-               ((self.q5()['value']>0)?self.q5()['value']:0) +
-               ((self.q6()['value']>0)?self.q6()['value']:0);
+               ((self.q5()['value']>0 && !self.isQ5Dupe())?self.q5()['value']:0) +
+               ((self.q6()['value']>0 && !self.isQ6Dupe())?self.q6()['value']:0);
     });
     self.r3 = ko.computed(function() {
         return ((self.q7()['value']>0)?self.q7()['value']:0) +
-               ((self.q8()['value']>0)?self.q8()['value']:0) +
-               ((self.q9()['value']>0)?self.q9()['value']:0);
+               ((self.q8()['value']>0 && !self.isQ8Dupe())?self.q8()['value']:0) +
+               ((self.q9()['value']>0 && !self.isQ9Dupe())?self.q9()['value']:0);
     });
     self.r4 = ko.computed(function() {
         return ((self.q11()['value']>0)?self.q11()['value']:0) +
-               ((self.q12()['value']>0)?self.q12()['value']:0) +
-               ((self.q13()['value']>0)?self.q13()['value']:0);
+               ((self.q12()['value']>0 && !self.isQ12Dupe())?self.q12()['value']:0) +
+               ((self.q13()['value']>0 && !self.isQ13Dupe())?self.q13()['value']:0);
     });
     self.r5 = ko.computed(function() {
         return ((self.q14()['value']>0)?self.q14()['value']:0) +
-               ((self.q15()['value']>0)?self.q15()['value']:0) +
-               ((self.q16()['value']>0)?self.q16()['value']:0);
+               ((self.q15()['value']>0 && !self.isQ15Dupe())?self.q15()['value']:0) +
+               ((self.q16()['value']>0 && !self.isQ16Dupe())?self.q16()['value']:0);
     });
     self.r6 = ko.computed(function() {
         return ((self.q17()['value']>0)?self.q17()['value']:0) +
-               ((self.q18()['value']>0)?self.q18()['value']:0) +
-               ((self.q19()['value']>0)?self.q19()['value']:0);
+               ((self.q18()['value']>0 && !self.isQ18Dupe())?self.q18()['value']:0) +
+               ((self.q19()['value']>0 && !self.isQ19Dupe())?self.q19()['value']:0);
     });
     
     self.firstHalfTotal = ko.computed(function() {
