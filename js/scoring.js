@@ -341,7 +341,7 @@ var scoringModel = function () {
                 url: self.showUrl + "/venue/id/" + window.venueId + "/format/json"
             }).done(function(result) {
                     self.venue(" - " + result.venue);
-                    // self.venueCity(result.city);
+                    self.venueCity(result.city);
             });
         }
 
