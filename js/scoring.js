@@ -188,8 +188,10 @@ var scoringModel = function () {
 
     if (window.isTournament) {
         this.showUrl = "/" + this.franchise.toLowerCase() + "/tournament";
+        this.scoreUrl = this.showUrl + "/getscores/id/" + window.venueId + "/format/json";
     } else {
         this.showUrl = "/" + this.franchise.toLowerCase() + "/show";
+        this.scoreUrl = this.showUrl + "/getscores/id/" + window.showId + "/format/json";
     }
 
     this.sortScores = function(a, b) {
@@ -345,7 +347,7 @@ var scoringModel = function () {
 
         // fetch scores from server
         $.ajax({
-            url: self.showUrl + "/getscores/id/" + window.showId + "/format/json"
+            url: self.scoreUrl
         }).done(function(result) {
             var scores = result.scores;
             if (scores.length > 0) {
