@@ -90,15 +90,17 @@ var Score = function () {
     }
 
     self.getRank = function(index, parent) {
-        var scores = $.map(parent.sortedScores(), function (e) {
-            return e.grandTotal();
-        });
+        if (parent) {
+            var scores = $.map(parent.sortedScores(), function (e) {
+                return e.grandTotal();
+            });
 
-        var uniqueScores = $.grep(scores, function(el, i){
-            return i == $.inArray(el , scores);
-        });
+            var uniqueScores = $.grep(scores, function(el, i){
+                return i == $.inArray(el , scores);
+            });
 
-        return $.inArray(self.grandTotal(), uniqueScores) + 1;
+            return $.inArray(self.grandTotal(), uniqueScores) + 1;
+        }
     }
     
     self.isQ2Dupe = function() {
@@ -406,6 +408,7 @@ var scoringModel = function () {
         delete scoreData.setRows;
         delete scoreData.setRowsFromForm;
         delete scoreData.showSection;
+        delete scoreData.getRank;
 
         if (navigator.onLine) {
             // we are online and can persist data to the server
