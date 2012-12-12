@@ -396,6 +396,10 @@ var scoringModel = function () {
         });
     }
 
+    this.updateScores = function() {
+
+    }
+    
     this.sendScores = function() {
         scoreData = ko.toJS(this);
 

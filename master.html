@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Team Trivia Scoring</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/yepnope.1.5.4-min.js"></script>
+        <script type="text/javascript">
+        function cssLoaded(href) {
+            var cssFound = false;
+
+            for (var i = 0; i < document.styleSheets.length; i++) {
+                sheet = document.styleSheets[i];
+                if (sheet['href'].indexOf(href) >= 0 && sheet['cssRules'].length > 0) {
+                    cssFound = true;
+                }
+            };
+
+            return cssFound;
+        }
+
+        yepnope([{
+            load: '//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js',
+            complete: function () {
+                if (!window.jQuery) {
+                    yepnope('js/jquery-1.8.1.min.js');
+                }
+            }
+        }, {
+            load: '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js',
+            complete: function () {
+                if (!$.fn.button) { // just picked a random element from the bootstrap to test
+                    yepnope('js/bootstrap.min.js');
+                }
+            }
+        }, {
+            load: '//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css'
+        }, {
+            test: cssLoaded('bootstrap-combined.min.css'),
+            nope: 'css/bootstrap.min.css'
+        }, {
+            load: 'css/scoring.css'
+        }, {
+            load: 'css/master.css'
+        }, {
+            load: 'js/knockout-2.1.0.js'
+        }, {
+            load: 'js/master.js'
+        }]);
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <span class="brand">Team Trivia Tournament Master Score Sheet -
+                        <span data-bind="text: showName"></span> - 
+                        <span data-bind="text: showTime"></span> 
+                        <span data-bind="text: venue"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="section" id="team-rankings">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>League #</th>
+                            <th>Team Name</th>
+                            <th>Score</th>
+                            <th>City</th>
+                            <th># Players</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: sortedScores">
+                        <tr>
+                            <td><span class="input-mini uneditable-input" data-bind="text: getRank($index, $parent)"></span></td>
+                            <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
+                            <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
+                            <td><span class="input-mini uneditable-input" data-bind="text: grandTotal"></span></td>
+                            <td><span class="input-xlarge uneditable-input" data-bind="text: venueCity"></span></td>
+                            <td><span class="input-mini uneditable-input" data-bind="text: players"></span></td>
+                        </tr>                    
+                    </tbody>
+                </table>                
+            </div>
+            <div class="row-fluid">
+                <button data-bind="click: getScores" class="btn btn-primary">Get Latest Scores</button>
+            </div>
+        </div>
+    </body>
+</html>
