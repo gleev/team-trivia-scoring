@@ -74,7 +74,7 @@
                     <tbody data-bind="foreach: sortedScores">
                         <tr>
                             <td><span class="input-mini uneditable-input" data-bind="text: getRank($index, $parent)"></span></td>
-                            <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
+                            <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + franchise()"></span></td>
                             <td><span class="input-xxlarge uneditable-input left" data-bind="text: teamName"></span></td>
                             <td><span class="input-mini uneditable-input" data-bind="text: grandTotal"></span></td>
                             <td><span class="input-xlarge uneditable-input" data-bind="text: venueCity"></span></td>

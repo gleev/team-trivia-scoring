@@ -2,6 +2,7 @@ var Score = function () {
     var self = this;
     
     self.leagueId = ko.observable("");
+    self.franchise = ko.observable("");
     self.teamName = ko.observable("");
     self.venueCity = ko.observable("");
     self.players = ko.observable("");
@@ -77,6 +78,7 @@ var scoringModel = function () {
                     var s = new Score();
 
                     s.leagueId(e.teamId);
+                    s.franchise(e.franchise);
                     s.teamName(e.teamName);
                     s.players(e.players);
                     s.grandTotal(e.grandTotal);
