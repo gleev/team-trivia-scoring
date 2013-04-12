@@ -51,14 +51,6 @@ var scoringModel = function () {
         self.showTime(result.eventDate);
     });
 
-    // fetch venue info
-    $.ajax({
-        url: self.showUrl + "/venue/id/" + window.venueId + "/format/json"
-    }).done(function(result) {
-        self.venue(" - " + result.venue);
-        self.venueCity(result.city);
-    });
-
     this.sortScores = function(a, b) {
         if (a && b) {
             return a.grandTotal() > b.grandTotal() ? 1 : -1;
