@@ -47,9 +47,9 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th rowspan="2"># Players</th>
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
-                            <th rowspan="2"># Players</th>
                             <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 1</th>
                             <th colspan="4">Round 2</th>
@@ -77,6 +77,7 @@
                     </thead>
                     <tbody data-bind="foreach: scores">
                         <tr>
+                            <td><input type="text" class="input-xxmini" data-bind="value: players, attr: { tabindex: $parent.scores().length * 3 + id() }"></td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
                                 <div class="input-append">
@@ -86,7 +87,6 @@
                                 </div>
                             </td>
                             <td><input type="text" class="input-xlarge" data-bind="value: teamName, attr: { tabindex: $parent.scores().length * 2 + id() }"></td>
-                            <td><input type="text" class="input-xxmini" data-bind="value: players, attr: { tabindex: $parent.scores().length * 3 + id() }"></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, attr: { tabindex: $parent.scores().length * 4 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
@@ -143,9 +143,9 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
+                            <th rowspan="2"># Players</th>
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
-                            <th rowspan="2"># Players</th>
                             <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 4</th>
                             <th colspan="4">Round 5</th>
@@ -174,9 +174,9 @@
                     </thead>
                     <tbody data-bind="foreach: scores">
                         <tr>
+                            <td><span class="input-xxmini uneditable-input" data-bind="text: players"></span></td>
                             <td><span class="input-small uneditable-input" data-bind="text: leagueId() == '' ? '' : leagueId() + $parent.franchise"></span></td>
                             <td><span class="input-xlarge uneditable-input left" data-bind="text: teamName"></span></td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: players"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q11, attr: { tabindex: $parent.scores().length * 15 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
