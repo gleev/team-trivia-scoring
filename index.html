@@ -50,10 +50,10 @@
                             <th rowspan="2"># Players</th>
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
-                            <th rowspan="2"  class="id-column">Team #</th>
+                            <th rowspan="2" class="id-column">Team #</th>
                             <th colspan="4">Round 1</th>
-                            <th colspan="4">Round 2</th>
-                            <th rowspan="2"  class="id-column">ID</th>
+                            <th colspan="4" class="round2-column">Round 2</th>
+                            <th rowspan="2" class="id-column">ID</th>
                             <th colspan="4">Round 3</th>
                             <th rowspan="2">1st Half Bonus</th>
                             <th rowspan="2">1/2 Time Question</th>
@@ -65,10 +65,10 @@
                             <th>2</th>
                             <th>3</th>
                             <th>Total</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
-                            <th>Total</th>
+                            <th class="round2-column">4</th>
+                            <th class="round2-column">5</th>
+                            <th class="round2-column">6</th>
+                            <th class="round2-column">Total</th>
                             <th>7</th>
                             <th>8</th>
                             <th>9</th>
@@ -102,20 +102,20 @@
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r1"></span></td>
-                            <td>
+                            <td class="round2-column">
                                 <select class="input-xmini" data-bind='value: q4, attr: { tabindex: $parent.scores().length * 7 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td data-bind="style: { backgroundColor: isQ5Dupe() ? 'red' : '' }">
+                            <td class="round2-column" data-bind="style: { backgroundColor: isQ5Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ5Dupe() }">
                                     <select class="input-xmini" data-bind='value: q5, attr: { tabindex: $parent.scores().length * 8 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td data-bind="style: { backgroundColor: isQ6Dupe() ? 'red' : '' }">
+                            <td class="round2-column" data-bind="style: { backgroundColor: isQ6Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ6Dupe() }">
                                     <select class="input-xmini" data-bind='value: q6, attr: { tabindex: $parent.scores().length * 9 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: r2"></span></td>
+                            <td class="round2-column"><span class="input-xxmini uneditable-input" data-bind="text: r2"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q7, attr: { tabindex: $parent.scores().length * 10 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
@@ -146,9 +146,9 @@
                             <th rowspan="2"># Players</th>
                             <th rowspan="2">League #</th>
                             <th rowspan="2">Team Name</th>
-                            <th rowspan="2"  class="id-column">Team #</th>
+                            <th rowspan="2" class="id-column">Team #</th>
                             <th colspan="4">Round 4</th>
-                            <th colspan="4">Round 5</th>
+                            <th colspan="4" class="round2-column">Round 5</th>
                             <th rowspan="2"  class="id-column">ID</th>
                             <th colspan="4">Round 6</th>
                             <th rowspan="2">2nd Half Total</th>
@@ -162,10 +162,10 @@
                             <th>12</th>
                             <th>13</th>
                             <th>Total</th>
-                            <th>14</th>
-                            <th>15</th>
-                            <th>16</th>
-                            <th>Total</th>
+                            <th class="round2-column">14</th>
+                            <th class="round2-column">15</th>
+                            <th class="round2-column">16</th>
+                            <th class="round2-column">Total</th>
                             <th>17</th>
                             <th>18</th>
                             <th>19</th>
@@ -192,20 +192,20 @@
                                 </div>
                             </td>
                             <td><span class="input-xxmini uneditable-input" data-bind="text: r4"></span></td>
-                            <td>
+                            <td class="round2-column">
                                 <select class="input-xmini" data-bind='value: q14, attr: { tabindex: $parent.scores().length * 18 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                             </td>
-                            <td data-bind="style: { backgroundColor: isQ15Dupe() ? 'red' : '' }">
+                            <td class="round2-column" data-bind="style: { backgroundColor: isQ15Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ15Dupe() }">
                                     <select class="input-xmini" data-bind='value: q15, attr: { tabindex: $parent.scores().length * 19 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td data-bind="style: { backgroundColor: isQ16Dupe() ? 'red' : '' }">
+                            <td class="round2-column" data-bind="style: { backgroundColor: isQ16Dupe() ? 'red' : '' }">
                                 <div class="control-group" data-bind="css: { error: isQ16Dupe() }">
                                     <select class="input-xmini" data-bind='value: q16, attr: { tabindex: $parent.scores().length * 20 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
                                 </div>
                             </td>
-                            <td><span class="input-xxmini uneditable-input" data-bind="text: r5"></span></td>
+                            <td class="round2-column"><span class="input-xxmini uneditable-input" data-bind="text: r5"></span></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q17, attr: { tabindex: $parent.scores().length * 21 + id() }, options: $parent.validSecondHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
