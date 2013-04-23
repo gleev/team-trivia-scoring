@@ -81,16 +81,16 @@
                     </thead>
                     <tbody data-bind="foreach: scores">
                         <tr>
-                            <td><input type="text" class="input-xxmini" data-bind="value: players, attr: { tabindex: $parent.scores().length * 3 + id() }"></td>
+                            <td><input type="text" class="input-xxmini" data-bind="value: players, attr: { tabindex: $parent.scores().length * 1 + id() }"></td>
                             <td>
                                 <div class="control-group" data-bind="css: { error: invalidLeagueId() }">
                                 <div class="input-append">
-                                    <input type="text" class="input-xmini" data-bind="value: leagueId, attr: { tabindex: $parent.scores().length * 1 + id() }, event: { change: loadTeamName }">
+                                    <input type="text" class="input-xmini" data-bind="value: leagueId, attr: { tabindex: $parent.scores().length * 2 + id() }, event: { change: loadTeamName }">
                                     <span class="add-on" data-bind="text: $parent.franchise"></span>
                                 </div>
                                 </div>
                             </td>
-                            <td><input type="text" class="input-xlarge" data-bind="value: teamName, attr: { tabindex: $parent.scores().length * 2 + id() }"></td>
+                            <td><input type="text" class="input-xlarge" data-bind="value: teamName, attr: { tabindex: $parent.scores().length * 3 + id() }"></td>
                             <td class="id-column"><span class="input-xxmini uneditable-input" data-bind="text: id"></span></td>
                             <td>
                                 <select class="input-xmini" data-bind='value: q1, attr: { tabindex: $parent.scores().length * 4 + id() }, options: $parent.validFirstHalfScores, optionsText: function (item) { return item.text }, optionsValue: function (item) { return item.value }'></select>
