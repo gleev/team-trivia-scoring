@@ -22,3 +22,13 @@ input[type="tel"], input[type="color"], .uneditable-input, .control-group,
 #second-half, #team-rankings { display: none; }
 
 .id-column { background-color:#dff0d8 }
+
+.table-bordered {
+    border: 1px solid #000000;
+    border-left: 0;
+}
+
+.table-bordered th, .table-bordered td {
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+}
