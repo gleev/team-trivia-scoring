@@ -36,6 +36,8 @@ var scoringModel = function () {
     this.venueCity   = ko.observable();
     this.scores      = ko.observableArray();
 
+    this.calendarLink = "/" + this.franchise.toLowerCase() + "/show/calendar";
+
     this.showUrl = "/" + this.franchise.toLowerCase() + "/tournament";
     this.scoreUrl = this.showUrl + "/getmasterscores/id/" + window.showId + "/format/json";
 

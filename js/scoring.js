@@ -164,6 +164,8 @@ var scoringModel = function () {
     this.defaultRows = 3;
     this.scores      = ko.observableArray();
 
+    this.calendarLink = "/" + this.franchise.toLowerCase() + "/show/calendar";
+
     this.validFirstHalfScores = [
         { value: '', text: '' },
         { value: -5, text: '-5' },
