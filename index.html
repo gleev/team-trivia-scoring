@@ -31,7 +31,7 @@
                         <span data-bind="text: venue"></span>
                     </span>
                     <span class="brand"><a data-bind="attr: { href: calendarLink }">Return to Calendar</a></span>
-                    <form class="navbar-form pull-right" data-bind="submit: setRowsFromForm">
+                    <form method="POST" action="/scoring/index.html" class="navbar-form pull-right" data-bind="submit: setRowsFromForm">
                         <input name="numRows" type="text" class="input-mini" data-bind="value: scores().length">
                         <button type="submit" class="btn">Set # Teams</button>
                     </form>
